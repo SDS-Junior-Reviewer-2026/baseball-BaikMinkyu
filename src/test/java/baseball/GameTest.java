@@ -22,7 +22,7 @@ public class GameTest {
 		assertThrowsIllegalArgument(null);
 		assertThrowsIllegalArgument("12");
 		assertThrowsIllegalArgument("1234");
-
+		assertThrowsIllegalArgument("12s");
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class GameTest {
 
 	private void assertThrowsIllegalArgument(String guessNumber) {
 		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			game.guess(null);
+			game.guess(guessNumber);
 		});
 	}
 }
