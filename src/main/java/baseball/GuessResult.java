@@ -1,9 +1,9 @@
 package baseball;
 
 public class GuessResult {
-    private boolean isSolved;
-    private int strikes;
-    private int balls;
+    private final boolean isSolved;
+    private final int strikes;
+    private final int balls;
 
     public GuessResult(boolean isSolved, int strikes, int balls) {
         this.isSolved = isSolved;

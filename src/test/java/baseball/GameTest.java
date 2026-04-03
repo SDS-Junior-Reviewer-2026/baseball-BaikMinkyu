@@ -29,14 +29,14 @@ public class GameTest {
 	}
 
 	@Test
-	public void 숫자_세개가_전부_일치_할_경우_3_strike() {
+	public void guessCompletelyMatches() {
 		generateQuestion("123");
 
 		assertThatGuessResultIsEqual(game.guess("123"), true, 3, 0);
 	}
 
 	@Test
-	public void 숫자_세개가_전부_일치_하지_않을_경우_0_strike_0_ball() {
+	public void guessCompletelyUnmatches() {
 		generateQuestion("123");
 
 		assertThatGuessResultIsEqual(game.guess("456"), false, 0, 0);

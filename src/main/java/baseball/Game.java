@@ -6,10 +6,22 @@ public class Game {
     public GuessResult guess(String guessNumber) {
         checkIllegalArgument(guessNumber);
 
-        if (guessNumber.equals(question)) {
-            return new GuessResult(true, 3, 0);
+        if (isSolved(guessNumber)) {
+            return getSolvedGuessResult();
         }
 
+        return getUnsolvedGuessResult(guessNumber);
+    }
+
+    private boolean isSolved(String guessNumber) {
+        return guessNumber.equals(question);
+    }
+
+    private GuessResult getSolvedGuessResult() {
+        return new GuessResult(true, 3, 0);
+    }
+
+    private GuessResult getUnsolvedGuessResult(String guessNumber) {
         int strikes = 0;
         int balls = 0;
         for (int i = 0; i < question.length(); ++i) {
