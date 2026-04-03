@@ -43,8 +43,10 @@ public class GameTest {
 	}
 
 	@Test
-	public void 스트라이크만_있을_경우_1_strike_0_ball() {
+	public void 스트라이크만_있을_경우_2_strike_0_ball() {
+		generateQuestion("123");
 
+		assertThatGuessResultIsEqual(game.guess("120"), false, 2, 0);
 	}
 
 	@Test

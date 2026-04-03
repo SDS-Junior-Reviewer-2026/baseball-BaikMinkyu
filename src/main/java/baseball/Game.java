@@ -10,7 +10,17 @@ public class Game {
             return new GuessResult(true, 3, 0);
         }
 
-        return new GuessResult(false, 0, 0);
+        int strikes = 0;
+        for (int i = 0; i < question.length(); ++i) {
+            char digit = guessNumber.charAt(i);
+            int idx = question.indexOf(digit);
+
+            if (idx == i) {
+                ++strikes;
+            }
+        }
+
+        return new GuessResult(false, strikes, 0);
     }
 
     private static void checkIllegalArgument(String guessNumber) {
