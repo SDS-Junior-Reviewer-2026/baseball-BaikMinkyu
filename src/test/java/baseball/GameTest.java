@@ -23,6 +23,7 @@ public class GameTest {
 		assertThrowsIllegalArgument("12");
 		assertThrowsIllegalArgument("1234");
 		assertThrowsIllegalArgument("12s");
+		assertThrowsIllegalArgument("121");
 	}
 
 	@Test
