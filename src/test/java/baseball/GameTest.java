@@ -56,9 +56,9 @@ public class GameTest {
 	}
 
 	private void assertThrowsIllegalArgument(String guessNumber) {
-		assertThrows(IllegalArgumentException.class, () -> {
-			game.guess(guessNumber);
-		});
+		assertThrows(IllegalArgumentException.class, () ->
+				game.guess(guessNumber)
+		);
 	}
 
 	private void assertThatGuessResultIsEqual(GuessResult result, boolean isSolved, int strikes, int balls) {
