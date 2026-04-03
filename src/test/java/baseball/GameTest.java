@@ -18,17 +18,11 @@ public class GameTest {
 	}
 
 	@Test
-	public void 입력값이_없을_경우() {
-		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			game.guess(null);
-		});
-	}
+	public void guessInvalidInput() {
+		assertThrowsIllegalArgument(null);
+		assertThrowsIllegalArgument("12");
+		assertThrowsIllegalArgument("1234");
 
-	@Test
-	public void 입력값_자리수가_세자리가_아닐_경우() {
-		Assertions.assertThrows(IllegalArgumentException.class, () -> {
-			game.guess("12");
-		});
 	}
 
 	@Test
@@ -64,5 +58,11 @@ public class GameTest {
 	@Test
 	public void 볼과_스트라이크가_함께_있을_경우_1_strike_1_ball() {
 
+	}
+
+	private void assertThrowsIllegalArgument(String guessNumber) {
+		Assertions.assertThrows(IllegalArgumentException.class, () -> {
+			game.guess(null);
+		});
 	}
 }
