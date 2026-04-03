@@ -45,7 +45,17 @@ public class GameTest {
 
 	@Test
 	public void 숫자_세개가_전부_일치_하지_않을_경우_0_strike_0_ball() {
+		game.question = "123";
+		GuessResult result = game.guess("456");
 
+		Assertions.assertThat(result)
+				.isNotNull();
+		Assertions.assertThat(result.getIsSolved())
+				.isFalse();
+		Assertions.assertThat(result.getStrikes())
+				.isEqualTo(0);
+		Assertions.assertThat(result.getBalls())
+				.isEqualTo(0);
 	}
 
 	@Test
