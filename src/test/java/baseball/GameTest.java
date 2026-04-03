@@ -43,20 +43,12 @@ public class GameTest {
 	}
 
 	@Test
-	public void 스트라이크만_있을_경우_2_strike_0_ball() {
+	public void guessPartiallyMatches() {
 		generateQuestion("123");
 
 		assertThatGuessResultIsEqual(game.guess("120"), false, 2, 0);
-	}
-
-	@Test
-	public void 볼만_있을_경우_0_strike_1_ball() {
-
-	}
-
-	@Test
-	public void 볼과_스트라이크가_함께_있을_경우_1_strike_1_ball() {
-
+		assertThatGuessResultIsEqual(game.guess("061"), false, 0, 1);
+		assertThatGuessResultIsEqual(game.guess("136"), false, 1, 1);
 	}
 
 	private void generateQuestion(String question) {
