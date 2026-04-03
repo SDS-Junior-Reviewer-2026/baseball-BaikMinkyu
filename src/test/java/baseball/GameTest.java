@@ -35,11 +35,11 @@ public class GameTest {
 
 		Assertions.assertThat(result)
 				.isNotNull();
-		Assertions.assertThat(result.solved)
+		Assertions.assertThat(result.getIsSolved())
 				.isTrue();
-		Assertions.assertThat(result.strikes)
+		Assertions.assertThat(result.getStrikes())
 				.isEqualTo(3);
-		Assertions.assertThat(result.balls)
+		Assertions.assertThat(result.getBalls())
 				.isEqualTo(0);
 	}
 
