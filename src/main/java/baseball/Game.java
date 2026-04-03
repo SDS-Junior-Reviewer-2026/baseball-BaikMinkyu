@@ -2,10 +2,11 @@ package baseball;
 
 public class Game {
     public void guess(String guessNumber) {
-        if (guessNumber == null) {
-            throw new IllegalArgumentException();
-        }
-        if (guessNumber.length() != 3) {
+        checkIllegalArgument(guessNumber);
+    }
+
+    private static void checkIllegalArgument(String guessNumber) {
+        if (guessNumber == null || guessNumber.length() != 3) {
             throw new IllegalArgumentException();
         }
 
@@ -15,11 +16,14 @@ public class Game {
             }
         }
 
-        if (guessNumber.charAt(0) == guessNumber.charAt(1)
-                || guessNumber.charAt(0) == guessNumber.charAt(2)
-                || guessNumber.charAt(1) == guessNumber.charAt(2)
-        ) {
+        if (hasDuplicateDigits(guessNumber)) {
             throw new IllegalArgumentException();
         }
+    }
+
+    private static boolean hasDuplicateDigits(String guessNumber) {
+        return guessNumber.charAt(0) == guessNumber.charAt(1)
+                || guessNumber.charAt(0) == guessNumber.charAt(2)
+                || guessNumber.charAt(1) == guessNumber.charAt(2);
     }
 }
