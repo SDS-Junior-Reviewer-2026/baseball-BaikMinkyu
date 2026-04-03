@@ -12,10 +12,7 @@ public class Game {
 
         int strikes = 0;
         for (int i = 0; i < question.length(); ++i) {
-            char digit = guessNumber.charAt(i);
-            int idx = question.indexOf(digit);
-
-            if (idx == i) {
+            if (question.indexOf(guessNumber.charAt(i)) == i) {
                 ++strikes;
             }
         }
